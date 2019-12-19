@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Header from './Header.js';
 import Feed from './Feed.js';
 
-class App extends Component {
+class App extends React.Component {
   state = {
     feed: []
   }
