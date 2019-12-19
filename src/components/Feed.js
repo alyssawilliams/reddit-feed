@@ -1,8 +1,8 @@
 import React from "react";
 import Post from "./Post.js";
 
-function Feed({ feed }) {
-  const posts = feed.map(post => {
+function Feed({ feedData }) {
+  const posts = feedData.map(post => {
     return (
       <Post 
         key={post.data.id} 

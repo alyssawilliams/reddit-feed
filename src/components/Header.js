@@ -1,8 +1,11 @@
 import React from 'react';
 
-function Header() {
+function Header(props) {
   return (
-    <header>Header</header>
+    <header>
+      <button onClick={props.clickHandler} value="feed">/r/{props.subreddit}</button>
+      <button onClick={props.clickHandler} value="favorites">Favorites (n)</button>
+    </header>
   );
 }
 
