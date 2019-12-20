@@ -14,24 +14,27 @@ class App extends React.Component {
       feedData: [],
       favoritesData: []
     };
-
-    this.toggleTab = this.toggleTab.bind(this);
-    this.addFavorite = this.addFavorite.bind(this);
-    this.removeFavorite = this.removeFavorite.bind(this);
   };
 
 
   // Runs on load
   componentDidMount() {
-    const favoritesData = JSON.parse(localStorage.getItem("favoritesData"));
-    
+    this.checkStorage();
+    this.fetchData();
+  };
+
+  checkStorage = () => {
     // Checks to see if the user's favorites data is saved in local storage
+    const favoritesData = JSON.parse(localStorage.getItem("favoritesData"));
+
     if (JSON.parse(localStorage.getItem("favoritesData")).length != 0) {
       this.setState({ 
         favoritesData: favoritesData
       });
     }
+  };
 
+  fetchData = () => {
     fetch(`https://www.reddit.com/r/${this.state.subreddit}/top.json`)
     .then(res => res.json())
     .then((data) => {
@@ -55,7 +58,7 @@ class App extends React.Component {
 
 
   // Handles User Interaction
-  toggleTab(e) {
+  toggleTab = (e) => {
     let newActive = e.target.value;
 
     this.setState({
@@ -63,7 +66,7 @@ class App extends React.Component {
     });
   };
 
-  addFavorite(toSave) {
+  addFavorite = (toSave) => {
     const feedData = this.state.feedData;
     const favoritesData = this.state.favoritesData;
 
@@ -82,7 +85,7 @@ class App extends React.Component {
     };
   };
 
-  removeFavorite(toRemove) {
+  removeFavorite = (toRemove) => {
     const favoritesData = this.state.favoritesData;
 
     let filteredData = favoritesData.filter(savedData => {
@@ -94,9 +97,10 @@ class App extends React.Component {
     }, this.storeFavorites);
   };
 
-  storeFavorites() {
+  storeFavorites = () => {
     localStorage.setItem('favoritesData', JSON.stringify(this.state.favoritesData));
   };
+  
 
   // Renders App component
   render() {
