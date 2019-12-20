@@ -6,7 +6,7 @@ if (!document.lazyLoadInstance) {
   document.lazyLoadInstance = new LazyLoad('.lazy');
 }
 
-export class Post extends React.Component {
+export default class Post extends React.Component {
   componentDidMount() {
     document.lazyLoadInstance.update();
   };
@@ -32,5 +32,3 @@ export class Post extends React.Component {
     );
   };
 };
-
-export default Post;

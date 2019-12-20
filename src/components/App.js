@@ -23,6 +23,15 @@ class App extends React.Component {
 
   // Runs on load
   componentDidMount() {
+    const favoritesData = JSON.parse(localStorage.getItem("favoritesData"));
+    
+    // Checks to see if the user's favorites data is saved in local storage
+    if (JSON.parse(localStorage.getItem("favoritesData")).length != 0) {
+      this.setState({ 
+        favoritesData: favoritesData
+      });
+    }
+
     fetch(`https://www.reddit.com/r/${this.state.subreddit}/top.json`)
     .then(res => res.json())
     .then((data) => {
@@ -37,7 +46,9 @@ class App extends React.Component {
         }
       }
 
-      this.setState( { feedData: feedData });
+      this.setState({ 
+        feedData: feedData 
+      });
     })
     .catch(console.log);
   };
@@ -67,7 +78,7 @@ class App extends React.Component {
     if (!alreadySaved) {
       this.setState({ 
         favoritesData: [...this.state.favoritesData, data]
-      });
+      }, this.storeFavorites);
     };
   };
 
@@ -80,9 +91,12 @@ class App extends React.Component {
 
     this.setState({ 
       favoritesData: filteredData 
-    });
+    }, this.storeFavorites);
   };
 
+  storeFavorites() {
+    localStorage.setItem('favoritesData', JSON.stringify(this.state.favoritesData));
+  };
 
   // Renders App component
   render() {
@@ -90,7 +104,7 @@ class App extends React.Component {
 
     return (
       <div className="app">
-        <Header subreddit={this.state.subreddit} toggleTab={this.toggleTab} />
+        <Header subreddit={this.state.subreddit} toggleTab={this.toggleTab} favoritesCount={this.state.favoritesData.length} />
 
         {active === "feed" ? ( 
           <Feed feedData={this.state.feedData} handleFavorite={this.addFavorite} favoriteAction="Add" /> 
