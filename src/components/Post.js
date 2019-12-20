@@ -1,5 +1,5 @@
 import React from "react";
-import { formatUsername, getTimeAgo, setFavoriteButtonText, decodeImgUrl } from "./postFunctions.js";
+import { formatUrl, formatUsername, getTimeAgo, setFavoriteButtonText, decodeImgUrl } from "./postFunctions.js";
 import LazyLoad from "vanilla-lazyload";
 
 if (!document.lazyLoadInstance) {
@@ -16,12 +16,12 @@ export default class Post extends React.Component {
   };
 
   render() {
-    const { id, title, url, author, upvotes, posted, handleFavorite, favoriteAction, image } = this.props;
+    const { id, title, permalink, author, upvotes, posted, handleFavorite, favoriteAction, image } = this.props;
 
     return (
       <div className="post" key={id}>
         <p>Title: {title}</p>
-        <p>Url: {url}</p>
+        <p>Url: {formatUrl(permalink)}</p>
         <p>Author: {formatUsername(author)}</p>
         <p>Upvotes: {upvotes}</p>
         <p>Time Posted: {getTimeAgo(posted)}</p>

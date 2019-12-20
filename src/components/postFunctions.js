@@ -1,5 +1,9 @@
 import moment from "moment";
 
+export function formatUrl(permalink) {
+  return `https://www.reddit.com/${permalink}`;
+};
+
 export function formatUsername(author) {
   return `/u/${author}`.toLowerCase();
 };
