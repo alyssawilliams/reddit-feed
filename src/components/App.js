@@ -107,16 +107,17 @@ class App extends React.Component {
 
   // Renders App component
   render() {
-    let active = this.state.active;
+    const { subreddit, active, feedData, favoritesData } = this.state;
+    const { toggleTab, addFavorite, removeFavorite } = this;
 
     return (
       <div className="app">
-        <Header subreddit={this.state.subreddit} toggleTab={this.toggleTab} favoritesCount={this.state.favoritesData.length} />
+        <Header subreddit={subreddit} toggleTab={toggleTab} favoritesCount={favoritesData.length} />
 
         {active === "feed" ? ( 
-          <Feed feedData={this.state.feedData} handleFavorite={this.addFavorite} favoriteAction="Add" /> 
+          <Feed feedData={feedData} handleFavorite={addFavorite} favoriteAction="Add" /> 
         ) : active === "favorites" ? ( 
-          <Favorites favoritesData={this.state.favoritesData} handleFavorite={this.removeFavorite} favoriteAction="Remove" /> 
+          <Favorites favoritesData={favoritesData} handleFavorite={removeFavorite} favoriteAction="Remove" /> 
         ) : null }
       </div>
     );
