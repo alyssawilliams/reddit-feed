@@ -44,8 +44,11 @@ class App extends React.Component {
       });
 
       function imageCheck(post) {
-        if (post.data.preview.images[0].resolutions[3].url !== undefined) {
-          return post;
+        if (post.data.preview !== undefined) {
+          // resolution - width: 640, height 1280
+          if (post.data.preview.images[0].resolutions[3] !== undefined) {
+            return post;
+          }
         }
       }
 
