@@ -3,7 +3,7 @@ import Post from "./Post.js";
 
 function Feed(props) {
   const posts = props.feedData.map(post => {
-    const { id, title, permalink, author, ups, created_utc, preview, handleFavorite, favoriteAction, image } = post.data;
+    const { id, title, permalink, author, ups, created_utc, preview } = post.data;
 
     return (
       <Post 

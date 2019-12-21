@@ -3,7 +3,7 @@ import Post from "./Post.js";
 
 function Favorites(props) {
   const posts = props.favoritesData.map(post => {
-    const { id, title, permalink, author, ups, created_utc, preview, handleFavorite, favoriteAction, image } = post.data;
+    const { id, title, permalink, author, ups, created_utc, preview } = post.data;
     
     return (
       <Post 
