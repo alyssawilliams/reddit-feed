@@ -4,6 +4,10 @@ html, body {
 body {
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
+.reddit-feed .icon {
+  display: inline-block;
+  margin-right: 5px; }
+
 header {
   border-bottom: 1px solid #ccc; }
 
@@ -20,9 +24,92 @@ header .header-button {
   header .header-button:focus {
     outline: 0; }
 
-header .icon {
-  display: inline-block;
-  margin-right: 5px; }
+.reddit-feed-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  padding: 25px 30px; }
+
+@media only screen and (min-width: 500px) {
+  .reddit-feed-container {
+    padding: 40px 50px; } }
+
+.heading {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  font-family: 'Arvo', serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left; }
+  @media only screen and (min-width: 500px) {
+    .heading {
+      margin-bottom: 30px;
+      font-size: 34px; } }
+
+.post {
+  max-width: 500px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.23);
+  text-align: center; }
+  .post:not(:last-of-type) {
+    margin-bottom: 30px; }
+    @media only screen and (min-width: 500px) {
+      .post:not(:last-of-type) {
+        margin-bottom: 45px; } }
+
+.post .link, .post .link:visited {
+  color: inherit;
+  text-decoration: none; }
+
+.post .image-wrapper {
+  position: relative; }
+  .post .image-wrapper .image {
+    max-width: 100%; }
+  .post .image-wrapper .favorite-button {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    cursor: pointer; }
+    .post .image-wrapper .favorite-button:focus {
+      outline: none; }
+
+.post .title {
+  font-family: 'Arvo', serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  margin: 0;
+  padding: 30px 20px 20px; }
+  @media only screen and (min-width: 500px) {
+    .post .title {
+      padding: 40px 40px 30px; } }
+
+.post .post-info {
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+  color: #999;
+  font-size: 12px; }
+  .post .post-info .posted, .post .post-info .upvotes {
+    cursor: default; }
+  .post .post-info .spacer {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+            align-items: center;
+    margin: 0 5px;
+    font-size: 16px;
+    line-height: 15px;
+    vertical-align: middle; }
 
 .no-favorites {
   display: -webkit-box;
@@ -31,7 +118,16 @@ header .icon {
           align-items: center;
   -webkit-box-pack: center;
           justify-content: center;
-  margin: 50px;
+  width: 100%;
+  margin: 0 50px;
   background-color: #faf4cb; }
+
+.fin {
+  font-size: 14px;
+  color: #999;
+  font-style: italic;
+  display: inline-block;
+  width: 100%;
+  text-align: center; }
 
 /*# sourceMappingURL=index.css.map */

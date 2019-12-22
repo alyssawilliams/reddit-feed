@@ -119,7 +119,7 @@ class App extends React.Component {
     const { toggleTab, addFavorite, removeFavorite } = this;
 
     return (
-      <div className="app">
+      <div className="app reddit-feed">
         <Header subreddit={subreddit} toggleTab={toggleTab} favoritesCount={favoritesData.length} />
 
         {active === "feed" ? ( 

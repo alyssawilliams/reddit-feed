@@ -23,14 +23,17 @@ function Favorites(props) {
 
   if (posts.length !== 0) {
     return (
-      <div className="favorites">
-        {posts}
+      <div className="reddit-feed-container favorites">
+        <div>
+          <h1 className="heading">Your favorites</h1>
+          {posts}
+        </div>
       </div>
     );
   }
   else {
     return (
-      <div className="favorites">
+      <div className="reddit-feed-container favorites">
         <div className="no-favorites">
           <p>No favorites yet.</p>
         </div>

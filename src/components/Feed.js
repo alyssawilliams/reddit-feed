@@ -22,8 +22,16 @@ function Feed(props) {
   });
 
   return (
-    <main className="feed">
-      {posts}
+    <main className="reddit-feed-container feed">
+      <div>
+        <h1 className="heading">Top posts</h1>
+        
+        {posts}
+
+        <div>
+          <span className="fin">- fin -</span>
+        </div>
+      </div>
     </main>
   );
 }
