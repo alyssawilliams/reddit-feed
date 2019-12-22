@@ -15,19 +15,15 @@ export default class Post extends React.Component {
     document.lazyLoadInstance.update();
   };
 
-  updatefavoriteButtonClass = (id) => {
-    this.props.handleFavorite(id);
-  }
-
   render() {
     const { id, title, permalink, author, upvotes, posted, handleFavorite, favoriteAction, isFavorited, image } = this.props;
     let favoriteIcon = favoriteAction === "Add" ? "icon fas fa-heart" : "fas fa-trash-alt";
-    let favoriteButtonClass = this.props.isFavorited ? "favorite-button active" : "favorite-button";
+    let favoriteButtonClass = isFavorited ? "favorite-button active" : "favorite-button";
 
     return (
       <div className="post" key={id} id={id}>
         <div className="image-wrapper">
-          <button className={favoriteButtonClass} onClick={() => this.updatefavoriteButtonClass(id)}>
+          <button className={favoriteButtonClass} onClick={() => handleFavorite(id)}>
             <i className={favoriteIcon} role="presentation" aria-label={setFavoriteButtonText(favoriteAction)}></i>
           </button>
           <img className="image lazy" data-src={decodeImgUrl(image)} alt={`${formatUsername(author)}'s makeup look`} />
