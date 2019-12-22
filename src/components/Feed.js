@@ -22,9 +22,9 @@ function Feed(props) {
   });
 
   return (
-    <div className="feed">
+    <main className="feed">
       {posts}
-    </div>
+    </main>
   );
 }
 

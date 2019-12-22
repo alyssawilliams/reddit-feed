@@ -1,0 +1,44 @@
+// Colors
+$black: #000;
+$white: #fff;
+$light-gray: #ccc;
+$dark-gray: #999;
+$blue: #57a2e4;
+
+
+// Site
+html, body {
+  margin: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif; 
+}
+
+
+// Header
+header {
+  & {
+    border-bottom: 1px solid $light-gray;
+  }
+
+  .header-button {
+    border: none;
+    padding: 14px 10px;
+    font-size: 16px;
+  }
+
+  .feed-toggle {
+    background-color: $blue;
+    color: $white;
+  }
+
+  .favorites-toggle {
+    color: $blue;
+  }
+
+  .icon {
+    display: inline-block;
+    margin-right: 5px;
+  }
+}

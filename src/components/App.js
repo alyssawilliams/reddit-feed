@@ -27,7 +27,7 @@ class App extends React.Component {
     // Checks to see if the user's favorites data is saved in local storage
     const favoritesData = JSON.parse(localStorage.getItem("favoritesData"));
 
-    if (JSON.parse(localStorage.getItem("favoritesData")).length !== 0) {
+    if (JSON.parse(localStorage.getItem("favoritesData"))) {
       this.setState({ 
         favoritesData: favoritesData
       });
