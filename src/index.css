@@ -5,24 +5,33 @@ body {
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
 header {
-  display: -webkit-box;
-  display: flex;
   border-bottom: 1px solid #ccc; }
 
 header .header-button {
   border: none;
   padding: 14px 10px;
-  font-size: 16px; }
-
-header .feed-toggle {
-  background-color: #57a2e4;
-  color: #fff; }
-
-header .favorites-toggle {
-  color: #57a2e4; }
+  font-size: 16px;
+  background-color: #fff;
+  color: #57a2e4;
+  cursor: pointer; }
+  header .header-button.active {
+    background-color: #57a2e4;
+    color: #fff; }
+  header .header-button:focus {
+    outline: 0; }
 
 header .icon {
   display: inline-block;
   margin-right: 5px; }
+
+.no-favorites {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: 50px;
+  background-color: #faf4cb; }
 
 /*# sourceMappingURL=index.css.map */

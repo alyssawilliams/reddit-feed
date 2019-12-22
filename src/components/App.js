@@ -67,6 +67,14 @@ class App extends React.Component {
     this.setState({
       active: newActive
     });
+
+    let buttons = document.getElementsByClassName("header-button");
+
+    for (let button of buttons) {
+      button.classList.remove("active")
+    }
+
+    document.getElementById(newActive).classList.add("active");
   };
 
   addFavorite = (toSave) => {

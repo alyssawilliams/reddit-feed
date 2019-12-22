@@ -4,7 +4,7 @@ import Post from "./Post.js";
 function Favorites(props) {
   const posts = props.favoritesData.map(post => {
     const { id, title, permalink, author, ups, created_utc, preview } = post.data;
-    
+
     return (
       <Post 
         key={id} 
@@ -21,11 +21,24 @@ function Favorites(props) {
     );
   });
 
-  return (
-    <div className="favorites">
-      {posts}
-    </div>
-  );
+  if (posts.length !== 0) {
+    return (
+      <div className="favorites">
+        {posts}
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className="favorites">
+        <div className="no-favorites">
+          <p>No favorites yet.</p>
+        </div>
+      </div>
+    );
+  }
+
+  
 };
 
 export default Favorites;

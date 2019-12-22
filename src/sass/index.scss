@@ -3,6 +3,7 @@ $black: #000;
 $white: #fff;
 $light-gray: #ccc;
 $dark-gray: #999;
+$yellow: #faf4cb;
 $blue: #57a2e4;
 
 
@@ -26,19 +27,33 @@ header {
     border: none;
     padding: 14px 10px;
     font-size: 16px;
-  }
-
-  .feed-toggle {
-    background-color: $blue;
-    color: $white;
-  }
-
-  .favorites-toggle {
+    background-color: $white;
     color: $blue;
+    cursor: pointer;
+
+    &.active {
+      background-color: $blue;
+      color: $white;
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 
   .icon {
     display: inline-block;
     margin-right: 5px;
   }
+}
+
+
+// Favorites
+
+.no-favorites {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  background-color: $yellow;
 }
