@@ -1,9 +1,12 @@
 import React from "react";
 import Post from "./Post.js";
 
-function Feed(props) {
+export default function Feed(props) {
+  let favoriteIDs = props.favoritesData.map(favorite => favorite.data.id);
+
   const posts = props.feedData.map(post => {
     const { id, title, permalink, author, ups, created_utc, preview } = post.data;
+    let isFavorited = favoriteIDs.some(favoriteID => favoriteID === id);
 
     return (
       <Post 
@@ -17,6 +20,7 @@ function Feed(props) {
         image={preview.images[0].resolutions[3].url}
         handleFavorite={props.handleFavorite}
         favoriteAction={props.favoriteAction}
+        isFavorited={isFavorited}
       />
     );
   });
@@ -25,9 +29,9 @@ function Feed(props) {
     <main className="reddit-feed-container feed">
       <div>
         <h1 className="heading">Top posts</h1>
-        
-        {posts}
 
+        {posts}
+        
         <div>
           <span className="fin">- fin -</span>
         </div>
@@ -35,5 +39,3 @@ function Feed(props) {
     </main>
   );
 }
-
-export default Feed;

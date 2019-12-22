@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header(props) {
+export default function Header(props) {
   return (
     <header>
       <button className="header-button feed-toggle active" id="feed" onClick={props.toggleTab} value="feed">
@@ -13,5 +13,3 @@ function Header(props) {
     </header>
   );
 }
-
-export default Header;

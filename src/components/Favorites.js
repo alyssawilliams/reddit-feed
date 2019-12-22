@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "./Post.js";
 
-function Favorites(props) {
+export default function Favorites(props) {
   const posts = props.favoritesData.map(post => {
     const { id, title, permalink, author, ups, created_utc, preview } = post.data;
 
@@ -40,8 +40,4 @@ function Favorites(props) {
       </div>
     );
   }
-
-  
 };
-
-export default Favorites;

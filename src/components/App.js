@@ -3,7 +3,7 @@ import Header from './Header.js';
 import Feed from './Feed.js';
 import Favorites from './Favorites';
 
-class App extends React.Component {
+export default class App extends React.Component {
   // Constructor
   constructor(props) {
     super(props);
@@ -123,7 +123,7 @@ class App extends React.Component {
         <Header subreddit={subreddit} toggleTab={toggleTab} favoritesCount={favoritesData.length} />
 
         {active === "feed" ? ( 
-          <Feed feedData={feedData} handleFavorite={addFavorite} favoriteAction="Add" /> 
+          <Feed feedData={feedData} favoritesData={favoritesData} handleFavorite={addFavorite} favoriteAction="Add" /> 
         ) : active === "favorites" ? ( 
           <Favorites favoritesData={favoritesData} handleFavorite={removeFavorite} favoriteAction="Remove" /> 
         ) : null }
@@ -131,5 +131,3 @@ class App extends React.Component {
     );
   };
 }
-
-export default App;

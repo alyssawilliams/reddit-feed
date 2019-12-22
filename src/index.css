@@ -13,11 +13,16 @@ header {
 
 header .header-button {
   border: none;
+  width: 100%;
   padding: 14px 10px;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 16px;
   background-color: #fff;
   color: #57a2e4;
   cursor: pointer; }
+  @media only screen and (min-width: 320px) {
+    header .header-button {
+      width: auto; } }
   header .header-button.active {
     background-color: #57a2e4;
     color: #fff; }
@@ -44,7 +49,7 @@ header .header-button {
   margin-top: 30px;
   margin-bottom: 20px;
   width: 100%;
-  font-family: 'Arvo', serif;
+  font-family: "Arvo", serif;
   font-size: 24px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -64,27 +69,42 @@ header .header-button {
       .post:not(:last-of-type) {
         margin-bottom: 45px; } }
 
-.post .link, .post .link:visited {
-  color: inherit;
-  text-decoration: none; }
-
 .post .image-wrapper {
   position: relative; }
+  .post .image-wrapper:hover .favorite-button {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    visibility: visible; }
   .post .image-wrapper .image {
     max-width: 100%; }
   .post .image-wrapper .favorite-button {
     position: absolute;
     border: none;
     background-color: transparent;
-    color: #fff;
+    color: white;
     font-size: 16px;
     padding: 10px 15px;
-    cursor: pointer; }
+    cursor: pointer;
+    visibility: hidden;
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    -webkit-transition: .75s;
+    transition: .75s; }
+    .post .image-wrapper .favorite-button.active {
+      visibility: visible;
+      color: #f7877d;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      right: 0; }
     .post .image-wrapper .favorite-button:focus {
       outline: none; }
 
+.post .link, .post .link:visited {
+  color: inherit;
+  text-decoration: none; }
+
 .post .title {
-  font-family: 'Arvo', serif;
+  font-family: "Arvo", serif;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -95,10 +115,13 @@ header .header-button {
       padding: 40px 40px 30px; } }
 
 .post .post-info {
-  padding: 20px 0;
+  padding: 20px 10px;
   border-top: 1px solid #ccc;
   color: #999;
-  font-size: 12px; }
+  font-size: 12px;
+  line-height: 18px; }
+  .post .post-info .group {
+    display: inline-block; }
   .post .post-info .posted, .post .post-info .upvotes {
     cursor: default; }
   .post .post-info .spacer {

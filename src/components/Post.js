@@ -15,14 +15,19 @@ export default class Post extends React.Component {
     document.lazyLoadInstance.update();
   };
 
+  updatefavoriteButtonClass = (id) => {
+    this.props.handleFavorite(id);
+  }
+
   render() {
-    const { id, title, permalink, author, upvotes, posted, handleFavorite, favoriteAction, image } = this.props;
+    const { id, title, permalink, author, upvotes, posted, handleFavorite, favoriteAction, isFavorited, image } = this.props;
     let favoriteIcon = favoriteAction === "Add" ? "icon fas fa-heart" : "fas fa-trash-alt";
+    let favoriteButtonClass = this.props.isFavorited ? "favorite-button active" : "favorite-button";
 
     return (
-      <div className="post" key={id}>
+      <div className="post" key={id} id={id}>
         <div className="image-wrapper">
-          <button className="favorite-button" onClick={() => handleFavorite(id)}>
+          <button className={favoriteButtonClass} onClick={() => this.updatefavoriteButtonClass(id)}>
             <i className={favoriteIcon} role="presentation" aria-label={setFavoriteButtonText(favoriteAction)}></i>
           </button>
           <img className="image lazy" data-src={decodeImgUrl(image)} alt={`${formatUsername(author)}'s makeup look`} />
@@ -31,23 +36,21 @@ export default class Post extends React.Component {
           <h2 className="title">{title}</h2>
         </a>
         <div className="post-info">
-          <span className="author">
+          <span className="group author">
             <i className="icon fas fa-user"></i>
             {formatUsername(author)}
           </span>
 
-          <span className="spacer">•</span>
-
-          <span className="posted">
+          <span className="group posted">
+            <span className="spacer">•</span>
             <a className="link" href={formatUrl(permalink)} target="_blank" rel="noopener noreferrer">
               <i className="icon far fa-clock"></i>
               {getTimeAgo(posted)}
             </a>
           </span>
 
-          <span className="spacer">•</span>
-
-          <span className="upvotes">
+          <span className="group upvotes">
+            <span className="spacer">•</span>
             <i className="icon fas fa-bolt"></i>
             {upvotes}
           </span>
